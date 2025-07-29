@@ -8,6 +8,7 @@ import Contact from "./pages/Contact";
 import Service from "./pages/Service";
 import Register from './pages/Register';
 import Login from './pages/Login';
+import HomePage from './components/HomePage';
 
 const App = () => {
   return (
@@ -22,6 +23,7 @@ const App = () => {
               <Route path="/service" element={<Service />} /> 
               <Route path="/register" element={<Register />} /> 
               <Route path="/login" element={<Login />} /> 
+              <Route path="/homepage" element={<Login HomePage/>} /> 
           </Routes>
       </BrowserRouter>
     </>

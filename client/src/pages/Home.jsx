@@ -1,5 +1,6 @@
 import React from 'react'
 import Hero from '../components/Hero';
+import HomePage from '../components/HomePage';
 
 
 
@@ -8,6 +9,7 @@ const Home = () => {
     <>
     <div>
         <Hero />
+        <HomePage />
       
     </div>
  
