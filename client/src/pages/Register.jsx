@@ -58,7 +58,7 @@ const Register = () => {
       </button>
 
       <p className="text-sm text-gray-500 mt-4 text-center font-serif">
-        Already have an account? <a href="#" onClick={()=>navigate('/login')}  className="text-indigo-600 hover:underline  hover:font-bold">Login</a>
+        Register your account? <a href="#"  className="text-indigo-600 hover:underline  hover:font-bold"></a>
       </p>
     </form>
   </div>
