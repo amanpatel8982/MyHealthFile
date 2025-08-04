@@ -7,7 +7,7 @@ const ChooseRole = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-tr from-blue-200 to-white px-4 py-12">
-      <div className="max-w-5xl relative bottom-8 w-full bg-white shadow-xl rounded-2xl p-8 md:p-14">
+      <div className="max-w-5xl relative bottom-8  w-full bg-white  rounded-2xl p-8 md:p-14">
         <h2 className="text-3xl font-bold text-center text-blue-900 mb-8">
           Create Your Account
         </h2>
@@ -16,8 +16,8 @@ const ChooseRole = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
           {/* Doctor Card */}
           <div
-            onClick={() => navigate('/register-doctor')}
-            className="cursor-pointer transition-all duration-300 transform hover:scale-105 bg-blue-50 p-6 rounded-xl shadow-md hover:shadow-xl flex flex-col items-center text-center"
+            onClick={() => navigate('/doctorRegister')}
+            className="cursor-pointer shadow-[0_10px_50px_rgba(84,_76,_155,_7)] transition-all duration-300 transform hover:scale-105 bg-blue-100 p-6 rounded-xl  hover:shadow-xl flex flex-col items-center text-center"
           >
             <FaUserMd className="text-blue-700 mb-4" size={50} />
             <h3 className="text-xl font-semibold text-blue-800">I am a Doctor</h3>
@@ -26,8 +26,8 @@ const ChooseRole = () => {
 
           {/* Patient Card */}
           <div
-            onClick={() => navigate('/register-patient')}
-            className="cursor-pointer transition-all duration-300 transform hover:scale-105 bg-blue-50 p-6 rounded-xl shadow-md hover:shadow-xl flex flex-col items-center text-center"
+            onClick={() => navigate('/registerPatient')}
+            className="cursor-pointer transition-all shadow-[0_10px_50px_rgba(84,_76,_155,_7)] duration-300 transform hover:scale-105 bg-blue-100 p-6 rounded-xl hover:shadow-xl flex flex-col items-center text-center"
           >
             <FaUserInjured className="text-green-700 mb-4" size={50} />
             <h3 className="text-xl font-semibold text-green-800">I am a Patient</h3>

@@ -1,34 +1,34 @@
-import React, { useState } from 'react';
-import { FcGoogle } from 'react-icons/fc';
-import { HiOutlineMail } from 'react-icons/hi';
-import { IoEye, IoEyeOff } from 'react-icons/io5';
-
+import React, { useState } from "react";
+import { FcGoogle } from "react-icons/fc";
+import { HiOutlineMail } from "react-icons/hi";
+import { IoEye, IoEyeOff } from "react-icons/io5";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
 
   const handleLogin = (e) => {
     e.preventDefault();
     if (!email || !password) {
-      setError('Please fill in all fields');
+      setError("Please fill in all fields");
       return;
     }
     // Handle login logic here (Firebase/Auth)
-    setError('');
-    console.log('Logging in...', email, password);
+    setError("");
+    console.log("Logging in...", email, password);
   };
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-gradient-to-br from-blue-100 to-white">
       <div className="grid grid-cols-1 relative bottom-8 md:grid-cols-2 shadow-2xl rounded-2xl bg-white w-full max-w-5xl overflow-hidden">
-
         {/* Left Section */}
         <div className="bg-blue-50 p-10 hidden md:flex flex-col justify-center items-center text-center">
           <img src="login.svg" alt="smart forms" className="w-3/4 mb-6" />
-          <h2 className="text-2xl font-semibold text-blue-700 mb-4">Smarter Login Experience</h2>
+          <h2 className="text-2xl font-semibold text-blue-700 mb-4">
+            Smarter Login Experience
+          </h2>
           <ul className="text-sm text-blue-800 space-y-2 text-left">
             <li>✓ Secured authentication</li>
             <li>✓ Easy login via Gmail</li>
@@ -38,14 +38,20 @@ const Login = () => {
 
         {/* Right Section - Login */}
         <div className="p-8 md:p-14">
-          <h2 className="text-3xl font-bold text-blue-900 mb-2">Welcome Back!</h2>
-          <p className="text-sm text-gray-600 mb-6">Sign in to your doctor account</p>
+          <h2 className="text-3xl font-bold text-blue-900 mb-2">
+            Welcome Back!
+          </h2>
+          <p className="text-sm text-gray-600 mb-6">
+            Sign in to your doctor account
+          </p>
 
           {error && <p className="text-red-600 text-sm mb-4">{error}</p>}
 
           <form onSubmit={handleLogin} className="space-y-5">
             <div>
-              <label className="block mb-1 text-gray-700 font-medium">Email Address *</label>
+              <label className="block mb-1 text-gray-700 font-medium">
+                Email Address *
+              </label>
               <input
                 type="email"
                 className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
@@ -56,10 +62,12 @@ const Login = () => {
             </div>
 
             <div>
-              <label className="block mb-1 text-gray-700 font-medium">Password *</label>
+              <label className="block mb-1 text-gray-700 font-medium">
+                Password *
+              </label>
               <div className="relative">
                 <input
-                  type={showPassword ? 'text' : 'password'}
+                  type={showPassword ? "text" : "password"}
                   className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
@@ -75,7 +83,9 @@ const Login = () => {
             </div>
 
             <div className="flex justify-end text-sm mb-4">
-              <a href="#" className="text-blue-600 hover:underline">Forgot Password?</a>
+              <a href="#" className="text-blue-600 hover:underline">
+                Forgot Password?
+              </a>
             </div>
 
             <button
@@ -95,11 +105,17 @@ const Login = () => {
               type="button"
               className="flex items-center justify-center w-full border border-gray-300 py-2 rounded-md hover:shadow-md transition"
             >
-              <FcGoogle className="mr-2" size={20} /> Sign In with Google
+              <a target="blank" href="https://accounts.google.com/v3/signin/identifier?ifkv=AdBytiNFk4jSEX2ee4ApwfKSL7l2V1c-XQidwW8apIG3SDgAG8uazfBPdgWmQSAe8DrDH6qYzo6m0g&service=mail&flowName=GlifWebSignIn&flowEntry=ServiceLogin&dsh=S386133557%3A1754313022764654">
+                {" "}
+                <FcGoogle className="mr-2" size={20} /> Sign In with Google
+              </a>
             </button>
 
             <p className="text-center text-sm text-gray-600 mt-6">
-              New to MyHealthFile? <a href="#" className="text-blue-600 hover:underline">Sign up here</a>
+              New to MyHealthFile?{" "}
+              <a href="#" className="text-blue-600 hover:underline">
+                Sign up here
+              </a>
             </p>
           </form>
         </div>

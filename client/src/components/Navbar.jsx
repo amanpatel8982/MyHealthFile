@@ -1,6 +1,6 @@
 import { useState,React } from 'react';
 import { Link, useNavigate } from "react-router-dom";
-import { Home, Info, Phone, Settings } from 'lucide-react';
+import { Home, Info, Phone, Settings,SquareChevronDown } from 'lucide-react';
 
 
 
@@ -27,7 +27,7 @@ const Navbar = () => {
        onMouseLeave={() => setDropdownOpen(false)}
        className='hover:underline hover:text-indigo-900'
        
-       ><Settings className='relative top-[22px] end-6 text-indigo-800' size={18} />Panel
+       ><SquareChevronDown className='relative top-[22px] end-6 text-indigo-800' size={18} />PANEL
        </button>
        {dropdownOpen && (
             <div
@@ -46,7 +46,7 @@ const Navbar = () => {
        
 <button
   onClick={() => navigate('/chooseRole')}
-className=' bg-indigo-600 text-white px-6 py-2 font-serif cursor-pointer rounded-full font-light ms-45 hidden md:block  mt-3 hover:scale-110 transition duration-300 ease-in-out shadow-md hover:shadow-lg'
+className=' bg-indigo-600 text-white px-6 py-2 font-serif cursor-pointer rounded-full font-light ms-43 hidden md:block  mt-3 hover:scale-110 transition duration-300 ease-in-out shadow-md hover:shadow-lg'
 >
   Create Account
 </button>       </div>   
