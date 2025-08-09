@@ -26,7 +26,7 @@ const ChooseRole = () => {
 
           {/* Patient Card */}
           <div
-            onClick={() => navigate('/registerPatient')}
+            onClick={() => navigate('/patientRegister')}
             className="cursor-pointer transition-all shadow-[0_10px_50px_rgba(84,_76,_155,_7)] duration-300 transform hover:scale-105 bg-blue-100 p-6 rounded-xl hover:shadow-xl flex flex-col items-center text-center"
           >
             <FaUserInjured className="text-green-700 mb-4" size={50} />

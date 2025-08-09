@@ -11,6 +11,12 @@ import Login from './pages/Login';
 import ChooseRole from './pages/ChooseRole';
 import DoctorRegister from './pages/DoctorRegister';
 import PatientRegister from './pages/PatientRegister';
+import Step1_PersonalInfo from './components/RegisterDoctor/Step1_PersonalInfo';
+ import Step2_ProfessionalDetails from './components/RegisterDoctor/Step2_ProfessionalDetails';
+import Step3_ContactInfo from './components/RegisterDoctor/Step3_ContactInfo';
+import Step4_DocumentsUpload from './components/RegisterDoctor/Step4_DocumentsUpload';
+import Step5_TermsSubmit from './components/RegisterDoctor/Step5_TermsSubmit';
+
 
 
 
@@ -30,6 +36,12 @@ const App = () => {
               <Route path="/chooserole" element={<ChooseRole />} />
               <Route path="/doctorRegister" element={<DoctorRegister />} />
               <Route path="/patientRegister" element={<PatientRegister />} />
+              <Route path="/register/doctor/step-1" element={<Step1_PersonalInfo />} />
+              <Route path="/register/doctor/step-2" element={<Step2_ProfessionalDetails />} /> 
+              <Route path="/register/doctor/step-3" element={<Step3_ContactInfo />} />
+              <Route path="/register/doctor/step-4" element={<Step4_DocumentsUpload />} />
+              <Route path="/register/doctor/step-5" element={<Step5_TermsSubmit />} /> 
+              
 
            
 
