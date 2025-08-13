@@ -2,7 +2,9 @@ import React, { use } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 
+
 const Step2_ProfessionalDetails = ({ formData, setFormData, handleNext, handleBack }) => {
+
   const navigate = useNavigate();
   return (
     <div className="w-full max-w-2xl mx-auto p-6 bg-white shadow-md rounded-lg mt-14">
