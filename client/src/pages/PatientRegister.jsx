@@ -1,5 +1,7 @@
 // src/pages/PatientRegistration.jsx
 import React, { useState } from "react";
+import api from "../config/api";
+
 
 const PatientRegister = () => {
   const [formData, setFormData] = useState({
@@ -17,7 +19,7 @@ const PatientRegister = () => {
     emergencyRelation: "",
     emergencyPhone: "",
    
-  });
+  });                                                         
 
   const handleChange = (e) => {
     const { name, value, files } = e.target;
@@ -31,6 +33,17 @@ const PatientRegister = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(formData);
+
+    try {
+
+      const res = api.post("/patient/register" , formData) 
+      
+    } catch (error) {
+      
+      console.log("error hai");
+      
+      
+    }
     alert("Patient Registered Successfully!");
   };
 
