@@ -1,9 +1,13 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { HiOutlineMail } from "react-icons/hi";
 import { IoEye, IoEyeOff } from "react-icons/io5";
+import DoctorPanel from "./DoctorPanel";
+
 
 const Login = () => {
+  const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -91,9 +95,10 @@ const Login = () => {
             <button
               type="submit"
               className="flex items-center justify-center w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition"
+              onClick={() => navigate('/doctorpanel')}
             >
               <HiOutlineMail className="mr-2" size={20} /> Log In
-            </button>
+            </button> 
 
             <div className="flex items-center gap-2 my-4">
               <div className="flex-grow h-px bg-gray-300" />
