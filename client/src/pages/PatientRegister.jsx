@@ -11,6 +11,7 @@ const PatientRegister = () => {
     bloodGroup: "",
     phone: "",
     email: "",
+    password:"",
     address: "",
     conditions: "",
     allergies: "",
@@ -32,11 +33,14 @@ const PatientRegister = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    
     console.log(formData);
 
     try {
 
       const res = api.post("/patient/register" , formData) 
+          alert("Patient Registered Successfully!");
+
       
     } catch (error) {
       
@@ -44,7 +48,6 @@ const PatientRegister = () => {
       
       
     }
-    alert("Patient Registered Successfully!");
   };
 
   return (
@@ -81,6 +84,7 @@ const PatientRegister = () => {
             <div className="grid md:grid-cols-2 gap-6">
               <input type="tel" name="phone" placeholder="Phone Number" className="border rounded-lg p-3 w-full" onChange={handleChange} />
               <input type="email" name="email" placeholder="Email Address" className="border rounded-lg p-3 w-full" onChange={handleChange} />
+              <input type="password" name="password" placeholder="Password" className="border rounded-lg p-3 w-full" onChange={handleChange} />
               <textarea name="address" placeholder="Full Address" className="border rounded-lg p-3 w-full md:col-span-2" onChange={handleChange}></textarea>
             </div>
           </div>
