@@ -17,6 +17,7 @@ import Step2_ProfessionalDetails from './components/RegisterDoctor/Step2_Profess
 import Step3_ContactInfo from './components/RegisterDoctor/Step3_ContactInfo';
 import Step4_DocumentsUpload from './components/RegisterDoctor/Step4_DocumentsUpload';
 import Step5_TermsSubmit from './components/RegisterDoctor/Step5_TermsSubmit';
+import PatientPanel from './pages/PatientPanel';
 
 const AppContent = () => {
   const location = useLocation();
@@ -46,6 +47,7 @@ const AppContent = () => {
         <Route path="/register/doctor/step-4" element={<Step4_DocumentsUpload />} />
         <Route path="/register/doctor/step-5" element={<Step5_TermsSubmit />} /> 
         <Route path="/doctorpanel" element={<DoctorPanel />} />
+        <Route path="/patientpanel" element={<PatientPanel />} />
       </Routes>
     </>
   )

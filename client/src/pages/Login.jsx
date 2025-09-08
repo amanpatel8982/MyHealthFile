@@ -112,13 +112,15 @@ const Login = () => {
             >
               <a target="blank" href="https://accounts.google.com/v3/signin/identifier?ifkv=AdBytiNFk4jSEX2ee4ApwfKSL7l2V1c-XQidwW8apIG3SDgAG8uazfBPdgWmQSAe8DrDH6qYzo6m0g&service=mail&flowName=GlifWebSignIn&flowEntry=ServiceLogin&dsh=S386133557%3A1754313022764654">
                 {" "}
-                <FcGoogle className="mr-2" size={20} /> Sign In with Google
+                <FcGoogle className="mr-2" size={20} 
+           
+                /> Sign In with Google
               </a>
             </button>
 
             <p className="text-center text-sm text-gray-600 mt-6">
               New to MyHealthFile?{" "}
-              <a href="#" className="text-blue-600 hover:underline">
+              <a href="#" className="text-blue-600 hover:underline"         onClick={() => navigate('/patientpanel')} >
                 Sign up here
               </a>
             </p>

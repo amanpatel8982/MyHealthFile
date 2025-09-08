@@ -36,14 +36,10 @@ const Navbar = () => {
               className="absolute top-10 left-0 w-44 bg-white shadow-lg rounded-lg z-50"
             >
               <Link to="/login" className="block px-4 py-2 hover:bg-gray-100">Doctor Panel</Link>
-              <Link to="/patientpanel" className="block px-4 py-2 hover:bg-gray-100">Patient Panel</Link>
+              <Link to="/login" className="block px-4 py-2 hover:bg-gray-100">Patient Panel</Link>
             </div>
           )}
        </div>
-
-
-    
-       
 <button
   onClick={() => navigate('/chooseRole')}
 className=' bg-indigo-600 text-white px-6 py-2 font-serif cursor-pointer rounded-full font-light ms-43 hidden md:block  mt-3 hover:scale-110 transition duration-300 ease-in-out shadow-md hover:shadow-lg'
