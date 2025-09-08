@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Sidebar from "../components/Sidebar";
+import Sidebar from "./Sidebar.jsx";
 import { FiSearch } from "react-icons/fi";
 import { Line } from "react-chartjs-2";
 import {
@@ -33,7 +33,7 @@ const DoctorPanel = () => {
   return (
     <div className="flex h-screen bg-gray-50">
       {/* Sidebar */}
-      <Sidebar setActive={setActive} active={active} />
+      
 
       {/* Main Content */}
       <div className="flex-1 p-6 overflow-y-auto">

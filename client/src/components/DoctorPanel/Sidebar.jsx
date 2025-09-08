@@ -25,7 +25,7 @@ const Sidebar = ({ setActive, active }) => {
   ];
 
   return (
-    <div className="bg-blue-950 text-white h-screen w-64 flex flex-col shadow-lg">
+    <div className="bg-blue-950 text-white h-screen w-64 flex flex-col  shadow-lg">
       {/* Logo */}
       <div className="p-6 text-2xl font-bold text-center border-b border-blue-800">
         Doctor<span className="text-indigo-400">Panel</span>
