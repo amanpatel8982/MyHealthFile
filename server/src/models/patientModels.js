@@ -16,7 +16,8 @@ const patientModel = new mongoose.Schema({
     emergencyName:{type: String , required: true},
     emergencyRelation:{type: String , required: true},
     emergencyPhone:{type: String , required: true},
-});
+}
+, {timestamps:true});
 
 const Patient = mongoose.model("Patient", patientModel);
 
