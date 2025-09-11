@@ -1,6 +1,6 @@
 import Patient from "../models/patientModels.js";
 import bcrypt from "bcryptjs";
-import jwt from "jsonwebtoken";
+
 
 
 export const registerPatient = async (req, res) => {

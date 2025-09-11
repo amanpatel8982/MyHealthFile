@@ -6,7 +6,7 @@ const HomePage = () => {
     <div>
     
 
-<section classNameName="bg-gradient-to-br from-blue-200 via-white to-blue-400 py-36  w-[92.2%]  ms-17 px-6 md:px-32 text-center text-gray-900">
+<section className="bg-gradient-to-br from-blue-200 via-white to-blue-400 py-36  w-[92.2%]  ms-17 px-6 md:px-32 text-center text-gray-900">
   <h1 className="text-6xl md:text-7xl font-extrabold mb-6  mt-20 animate-fade-in text-center tracking-tight leading-tight">Empowering <span className="text-blue-700">Digital Healthcare</span></h1>
   <p className="text-2xl max-w-4xl mx-auto leading-relaxed animate-slide-up">MyHealthFile helps families, professionals, and doctors connect to a smarter, safer way of managing health. All your records in one place — anytime, anywhere.</p>
   <div className="mt-10">

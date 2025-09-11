@@ -33,20 +33,12 @@ const PatientRegister = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
     console.log(formData);
-
     try {
-
       const res = api.post("/patient/register" , formData) 
           alert("Patient Registered Successfully!");
-
-      
     } catch (error) {
-      
       console.log("error hai");
-      
-      
     }
   };
 
