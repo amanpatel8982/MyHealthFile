@@ -7,7 +7,7 @@ import Chat from "../components/PatientPanel/Chat.jsx";
 import Dashboard from "../components/PatientPanel/Dashboard.jsx";
 import Notifications from "../components/PatientPanel/Notifications.jsx";
 import Appointments from "../components/PatientPanel/Appointments.jsx";
-import Reports from "../components/RegisterDoctor/Reports.jsx";
+import Reports from "../components/PatientPanel/Reports.jsx";
 import Settings from "../components/PatientPanel/Settings.jsx";
 import Support from "../components/PatientPanel/Support.jsx";
 
