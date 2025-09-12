@@ -2,7 +2,6 @@ import Patient from "../models/patientModels.js";
 import bcrypt from "bcryptjs";
 
 
-
 export const registerPatient = async (req, res) => {
     const {
         fullName,

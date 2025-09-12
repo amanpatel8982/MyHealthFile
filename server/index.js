@@ -7,7 +7,8 @@ import morgan from "morgan";
 import cookieParser from "cookie-parser";
 import cors from "cors";    
 import PublicRouter from "./src/routes/patientRouter.js";
-import AuthRouter from "./src/routes/doctorRouter.js";
+import DoctorRouter from "./src/routes/doctorRouter.js";
+
 
 
 
@@ -20,7 +21,7 @@ app.use(cookieParser());
 app.use(morgan("dev")); 
 
 app.use("/patient", PublicRouter);
-app.use("/doctor", AuthRouter);
+app.use("/doctor", DoctorRouter);
 
 app.get("/", (req, res) => {
     res.json({ message: "server connected" });

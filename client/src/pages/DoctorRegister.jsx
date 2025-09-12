@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { FaUserMd, FaFileUpload } from "react-icons/fa";
 import api from "../config/api" // Ensure you have an api.js file for handling API requests
 
+
 export default function DoctorRegistration() {
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState({
@@ -38,22 +39,27 @@ export default function DoctorRegistration() {
   const prevStep = () => setStep((prev) => prev - 1);
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+  e.preventDefault();
+  console.log("Submitting Form Data:", formData);
 
-    const dataToSend = new FormData();
-    Object.entries(formData).forEach(([key, value]) => {
-      dataToSend.append(key, value);
+  const dataToSend = new FormData();
+  Object.entries(formData).forEach(([key, value]) => {
+    dataToSend.append(key, value);
+  });
+
+  try {
+    await api.post("/doctor/register", dataToSend, {
+      headers: {
+        "Content-Type": "multipart/form-data", // 👈 important
+      },
     });
+    alert("Doctor Registered Successfully!");
+  } catch (error) {
+    console.error("Error:", error.response?.data || error.message);
+    alert("Registration Failed!");
+  }
+};
 
-    try {
-      // Replace with your API call
-       await api.post("/doctor/register", dataToSend);
-      alert("Doctor Registered Successfully!");
-    } catch (error) {
-      console.error("Error:", error);
-      alert("Registration Failed!");
-    }
-  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-blue-100 flex items-center justify-center p-6">
@@ -158,49 +164,58 @@ export default function DoctorRegistration() {
           )}
 
           {step === 3 && (
-            <div>
-              <h2 className="text-xl font-semibold text-gray-700 mb-4">
-                Contact Information
-              </h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <input
-                  name="email"
-                  placeholder="Email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  className="border rounded-lg p-3"
-                />
-                <input
-                  name="phone"
-                  placeholder="Phone"
-                  value={formData.phone}
-                  onChange={handleChange}
-                  className="border rounded-lg p-3"
-                />
-                <input
-                  name="address"
-                  placeholder="Address"
-                  value={formData.address}
-                  onChange={handleChange}
-                  className="border rounded-lg p-3 md:col-span-2"
-                />
-                <input
-                  name="city"
-                  placeholder="City"
-                  value={formData.city}
-                  onChange={handleChange}
-                  className="border rounded-lg p-3"
-                />
-                <input
-                  name="pincode"
-                  placeholder="Pincode"
-                  value={formData.pincode}
-                  onChange={handleChange}
-                  className="border rounded-lg p-3"
-                />
-              </div>
-            </div>
-          )}
+  <div>
+    <h2 className="text-xl font-semibold text-gray-700 mb-4">
+      Contact Information
+    </h2>
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <input
+        name="email"
+        placeholder="Email"
+        value={formData.email}
+        onChange={handleChange}
+        className="border rounded-lg p-3"
+      />
+      <input
+        name="phone"
+        placeholder="Phone"
+        value={formData.phone}
+        onChange={handleChange}
+        className="border rounded-lg p-3"
+      />
+      <input
+        type="password"
+        name="password"
+        placeholder="Password"
+        value={formData.password}
+        onChange={handleChange}
+        className="border rounded-lg p-3"
+      />
+      <input
+        name="address"
+        placeholder="Address"
+        value={formData.address}
+        onChange={handleChange}
+        className="border rounded-lg p-3 md:col-span-2"
+      />
+      <input
+        name="city"
+        placeholder="City"
+        value={formData.city}
+        onChange={handleChange}
+        className="border rounded-lg p-3"
+      />
+      <input
+        name="pincode"
+        placeholder="Pincode"
+        value={formData.pincode}
+        onChange={handleChange}
+        className="border rounded-lg p-3"
+      />
+    </div>
+  </div>
+)}
+
 
           {step === 4 && (
             <div>
