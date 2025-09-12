@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { FaUserMd, FaFileUpload } from "react-icons/fa";
+import api from "../config/api" // Ensure you have an api.js file for handling API requests
 
-export default function DoctorRegister() {
+export default function DoctorRegistration() {
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState({
     fullName: "",
@@ -46,7 +47,7 @@ export default function DoctorRegister() {
 
     try {
       // Replace with your API call
-      // await api.post("/doctor/register", dataToSend);
+       await api.post("/doctor/register", dataToSend);
       alert("Doctor Registered Successfully!");
     } catch (error) {
       console.error("Error:", error);
@@ -273,4 +274,3 @@ export default function DoctorRegister() {
     </div>
   );
 }
-``

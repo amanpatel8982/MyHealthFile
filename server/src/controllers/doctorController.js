@@ -1,4 +1,4 @@
-import Doctor from "../models/doctorModels";
+import Doctor from "../models/doctorModels.js";
 import bcrypt from "bcryptjs";
 
 export const registerDoctor = async (req, res) => {
@@ -17,10 +17,13 @@ export const registerDoctor = async (req, res) => {
         city,
         pincode,
         aadharNumber,
+        pan,
+        license,
+        profilePic,
     } = req.body;
 
     // Validate Required Fields
-    if (!fullName || !dob || !email || !phone || !password || !gender || !specialization || !experience || !registrationNumber || !clinic || !address || !city || !pincode || !aadharNumber) {
+    if (!fullName || !dob || !email || !phone || !password || !gender || !specialization || !experience || !registrationNumber || !clinic || !address || !city || !pincode || !aadharNumber || !pan || !license || !profilePic) {
         return res.status(400).json({ message: "Please fill all required fields." });
     }
 
@@ -51,6 +54,9 @@ export const registerDoctor = async (req, res) => {
             city,
             pincode,
             aadharNumber,
+            pan,
+            license,
+            profilePic,
         });
         res.status(201).json({ message: "Doctor registered successfully", doctor: newDoctor });
     } catch (error) {

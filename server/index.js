@@ -6,7 +6,8 @@ import connectDB from "./src/config/db.js";
 import morgan from "morgan";
 import cookieParser from "cookie-parser";
 import cors from "cors";    
-import AuthRouter from "./src/routes/patientRouter.js";
+import PublicRouter from "./src/routes/patientRouter.js";
+import AuthRouter from "./src/routes/doctorRouter.js";
 
 
 
@@ -18,11 +19,11 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(morgan("dev")); 
 
-app.use("/patient", AuthRouter )
+app.use("/patient", PublicRouter);
+app.use("/doctor", AuthRouter);
 
-
-app.get("/", (req , res) => {
-    res.json({message: "server connected"});
+app.get("/", (req, res) => {
+    res.json({ message: "server connected" });
 });
 
 

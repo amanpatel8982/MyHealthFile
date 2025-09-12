@@ -11,25 +11,25 @@ const doctorSchema = new mongoose.Schema(
     email: {
       type: String,
       required: [true, 'Email is required'],
-      unique: true,
-      lowercase: true,
-      trim: true,
-      match: [
-        /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/,
-        'Please fill a valid email address',
-      ],
+      // unique: true,
+      // lowercase: true,
+      // trim: true,
+      // match: [
+      //   /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/,
+      //   'Please fill a valid email address',
+      // ],
     },
     phone: {
       type: String,
       required: [true, 'Phone number is required'],
-      unique: true,
-      trim: true,
+      // unique: true,
+      // trim: true,
     },
   
     password: {
       type: String,
       required: [true, 'Password is required'],
-      minlength: 6,
+      // minlength: 6,
     },
     dob: {
       type: Date,
@@ -38,11 +38,11 @@ const doctorSchema = new mongoose.Schema(
     gender: {
       type: String,
       required: [true, 'Gender is required'],
-      enum: ['Male', 'Female', 'Other'],
+      // enum: ['Male', 'Female', 'Other'],
     },
     role: {
       type: String,
-      default: 'Doctor',
+      // default: 'Doctor',
     },
     
     // Professional Details
@@ -57,7 +57,7 @@ const doctorSchema = new mongoose.Schema(
     registrationNumber: {
       type: String,
       required: [true, 'Medical registration number is required'],
-      unique: true,
+      // unique: true,
     },
     clinic: {
       type: String,
@@ -78,7 +78,7 @@ const doctorSchema = new mongoose.Schema(
     aadharNumber: {
         type: String,
         required: [true, 'Aadhar number is required'],
-        unique: true,
+        // unique: true,
     },
 
     profilePic: {
