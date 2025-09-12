@@ -48,15 +48,15 @@ const doctorSchema = new mongoose.Schema(
     // Professional Details
     specialization: {
       type: String,
-      required: [true, 'Specialization is required'],
+    
     },
     experience: {
       type: Number,
-      required: [true, 'Experience is required'],
+     
     },
     registrationNumber: {
       type: String,
-      required: [true, 'Medical registration number is required'],
+    
       // unique: true,
     },
     clinic: {
@@ -77,7 +77,7 @@ const doctorSchema = new mongoose.Schema(
     // Identity
     aadharNumber: {
         type: String,
-        required: [true, 'Aadhar number is required'],
+     
         // unique: true,
     },
 
@@ -92,15 +92,11 @@ const doctorSchema = new mongoose.Schema(
     },
     license: {
       type: String, // URL or path
-      required: [true, 'Medical license document is required'],
+   
     },
 
     // Account Status for Admin Verification
-    status: {
-        type: String,
-        enum: ['Pending', 'Approved', 'Rejected'],
-        default: 'Pending'
-    }
+   
   },
   {
     timestamps: true,

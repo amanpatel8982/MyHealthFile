@@ -8,15 +8,14 @@ const router = express.Router();
 const upload  = multer();
 
 // multiple file fields handle karne ke liye
-router.post(
-  "/register",
-  upload.fields([
-    { name: "profilePic", maxCount: 1 },
-    { name: "aadhar", maxCount: 1 },
-    { name: "pan", maxCount: 1 },
-    { name: "license", maxCount: 1 },
-  ]),
-  registerDoctor
-);
+
+const cpUpload = upload.fields([
+  { name: 'aadhar', maxCount: 1 },
+  { name: 'pan', maxCount: 1 },
+  { name: 'license', maxCount: 1 },
+  { name: 'profilePic', maxCount: 1 }
+]);
+
+router.post("/register", cpUpload, registerDoctor);
 
 export default router;
