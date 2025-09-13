@@ -22,7 +22,12 @@ const Login = () => {
     // Handle login logic here (Firebase/Auth)
     setError("");
     console.log("Logging in...", email, password);
+    
   };
+
+  
+
+ 
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-gradient-to-br from-blue-100 to-white">
