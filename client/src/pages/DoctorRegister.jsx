@@ -60,12 +60,12 @@ export default function DoctorRegistration() {
           return false;
         }
         return true;
-      case 4:
-        if (!formData.profilePic || !formData.aadhar || !formData.pan || !formData.license) {
-          alert("All document uploads (Profile Pic, Aadhar, PAN, License) are required.");
-          return false;
-        }
-        return true;
+      // case 4:
+      //   if (!formData.profilePic || !formData.aadhar || !formData.pan || !formData.license) {
+      //     alert("All document uploads (Profile Pic, Aadhar, PAN, License) are required.");
+      //     return false;
+      //   }
+      //   return true;
       default:
         return true;
     }
@@ -100,7 +100,8 @@ export default function DoctorRegistration() {
         headers: {
           "Content-Type": "multipart/form-data",
         },
-      });
+      })
+      ;
       alert("Doctor Registered Successfully! Please wait for admin approval. 🎉");
     } catch (error) {
       console.error("Registration Error:", error);

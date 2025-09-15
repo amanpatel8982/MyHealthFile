@@ -3,9 +3,6 @@ import bcrypt from "bcryptjs";
 
 export const registerDoctor = async (req, res) => {
   try {
-    console.log("➡️ Incoming Body:", req.body);
-    console.log("➡️ Incoming Files:", req.files);
-
     const {
       fullName,
       dob,
@@ -13,6 +10,7 @@ export const registerDoctor = async (req, res) => {
       phone,
       password,
       gender,
+      role,
       specialization,
       experience,
       registrationNumber,
@@ -24,50 +22,26 @@ export const registerDoctor = async (req, res) => {
     } = req.body;
 
     const files = req.files || {};
-    const profilePicPath = files.profilePic?.[0]?.path || null;
-    const aadharPath = files.aadhar?.[0]?.path || null;
-    const panPath = files.pan?.[0]?.path || null;
-    const licensePath = files.license?.[0]?.path || null;
+    const profilePic = files.profilePic?.[0]?.path || null;
+    const aadhar = files.aadhar?.[0]?.path || null;
+    const pan = files.pan?.[0]?.path || null;
+    const license = files.license?.[0]?.path || null;
 
-    // ✅ Validation
-  if (
-  !fullName ||
-  !dob ||
-  !email ||
-  !phone ||
-  !password ||
-  !gender ||
-  !specialization ||
-  !experience ||
-  !registrationNumber ||
-  !clinic ||
-  !address ||
-  !city ||
-  !pincode ||
-  !aadharNumber ||
-  !profilePicPath ||
-  !aadharPath ||
-  !panPath ||
-  !licensePath
-) {
-  return res
-    .status(400)
-    .json({ message: "Please fill all required fields." });
-}
-
-
-    // ✅ Check if Doctor Already Exists
-    const existingDoctor = await Doctor.findOne({ email });
-    if (existingDoctor) {
-      return res
-        .status(400)
-        .json({ message: "Doctor with this email already exists." });
+    // ✅ Required field validation based on schema
+    if (!fullName || !dob || !email || !phone || !password || !gender) {
+      return res.status(400).json({ message: "Missing required fields." });
     }
 
-    // ✅ Hash Password
+    // ✅ Check for existing doctor
+    const existingDoctor = await Doctor.findOne({ email });
+    if (existingDoctor) {
+      return res.status(400).json({ message: "Doctor with this email already exists." });
+    }
+
+    // ✅ Hash password
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    // ✅ Create Doctor
+    // ✅ Create doctor
     const newDoctor = await Doctor.create({
       fullName,
       dob,
@@ -75,6 +49,7 @@ export const registerDoctor = async (req, res) => {
       phone,
       password: hashedPassword,
       gender,
+      role,
       specialization,
       experience,
       registrationNumber,
@@ -83,10 +58,10 @@ export const registerDoctor = async (req, res) => {
       city,
       pincode,
       aadharNumber,
-      profilePic: profilePicPath,
-      aadhar: aadharPath,
-      pan: panPath,
-      license: licensePath,
+      profilePic,
+      aadhar,
+      pan,
+      license,
     });
 
     return res.status(201).json({
@@ -98,7 +73,7 @@ export const registerDoctor = async (req, res) => {
     return res.status(500).json({
       message: "Error registering doctor",
       error: error.message,
-      stack: error.stack, // 👈 debugging ke liye
+      stack: error.stack,
     });
   }
 };
