@@ -25,10 +25,6 @@ const Login = () => {
     
   };
 
-  
-
- 
-
   return (
     <div className="flex min-h-screen items-center justify-center bg-gradient-to-br from-blue-100 to-white">
       <div className="grid grid-cols-1 relative bottom-8 md:grid-cols-2 shadow-2xl rounded-2xl bg-white w-full max-w-5xl overflow-hidden">

@@ -1,13 +1,13 @@
 import express from "express";
 import { registerDoctor } from "../controllers/doctorController.js";
-//import upload from "../middlewares/multerConfig.js"; // multer config
+
 import multer from "multer";
 
 const router = express.Router();
 
 const upload  = multer();
 
-// multiple file fields handle karne ke liye
+
 
 const cpUpload = upload.fields([
   { name: 'aadhar', maxCount: 1 },

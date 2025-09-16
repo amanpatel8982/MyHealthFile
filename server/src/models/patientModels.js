@@ -4,7 +4,7 @@ const patientSchema = new mongoose.Schema(
   {
     // Personal Information
     fullName: { type: String, required: true },
-    dob: { type: String, required: true }, // You can change to Date if needed
+    dob: { type: Date, required: true }, // You can change to Date if needed
     gender: { type: String, required: true },
     bloodGroup: { type: String, required: true },
 
