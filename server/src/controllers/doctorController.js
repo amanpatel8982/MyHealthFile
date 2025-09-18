@@ -1,5 +1,6 @@
 import Doctor from "../models/doctorModels.js";
 import bcrypt from "bcryptjs";
+import genToken from "../utils/auth.js";
 
 export const registerDoctor = async (req, res) => {
   try {
@@ -27,21 +28,20 @@ export const registerDoctor = async (req, res) => {
     const pan = files.pan?.[0]?.path || null;
     const license = files.license?.[0]?.path || null;
 
-    // ✅ Required field validation based on schema
+    
     if (!fullName || !dob || !email || !phone || !password || !gender) {
       return res.status(400).json({ message: "Missing required fields." });
     }
 
-    // ✅ Check for existing doctor
+ 
     const existingDoctor = await Doctor.findOne({ email });
     if (existingDoctor) {
       return res.status(400).json({ message: "Doctor with this email already exists." });
     }
 
-    // ✅ Hash password
+   
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    // ✅ Create doctor
     const newDoctor = await Doctor.create({
       fullName,
       dob,
@@ -77,3 +77,39 @@ export const registerDoctor = async (req, res) => {
     });
   }
 };
+
+export const Login = async (req, res, next) => {
+  try {
+    const { email, password } = req.body;
+
+    if (!email || !password) {
+      const error = new Error("all fleids Required");
+      error.statusCode = 400;
+      return next(error);
+    }
+
+    const user = await Doctor.findOne({ email });
+    if (!user) {
+      const error = new Error("User Not Registered");
+      error.statusCode = 400;
+      return next(error);
+    }
+
+    const isVerified = await bcrypt.compare(password, user.password);// Password ko verify kr rha hai
+
+    if (!isVerified) {
+      const error = new Error("Invalid Username or Password");
+      error.statusCode = 401;
+      return next(error);
+    }
+
+    genToken(user._id, res); // Token generate kr rha hai aur response me bhej rha hai
+
+    res
+      .status(200)
+      .json({ message: `Welcome Back ${user.fullName}`, data: user });
+  } catch (error) {
+    next(error);
+  }
+};
+

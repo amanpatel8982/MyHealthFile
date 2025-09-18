@@ -1,5 +1,6 @@
 import Patient from "../models/patientModels.js";
 import bcrypt from "bcryptjs";
+import genToken from "../utils/auth.js";
 
 
 export const registerPatient = async (req, res, next) => {
@@ -57,3 +58,42 @@ export const registerPatient = async (req, res, next) => {
   }
 };
 
+
+export const Login = async (req, res, next) => {
+  try{
+    const {email, password} = req.body;
+
+    if(!email || !password) 
+    {
+      const error = new error("all fields Required");
+      error.statusCode = 400;
+      return next(error);
+    }
+
+    const user = await Patient.findOne({email});
+
+    if(!user)
+    {
+      const error = new Error("User Not Registered");
+      error.statusCode = 400;
+      return next(error);
+    }
+
+    const isVerified = await bcrypt.compare(password, user.password);
+
+    if(!isVerified)
+    {
+      const error = new Error("Invalid Username or password");
+      error.statusCode = 401;
+      return next(error);
+    }
+
+    genToken(user._id, res);
+
+    res.status(200).json({message:`Welcome Back ${user.fullName}`, data: user});
+
+  } catch (error)
+  {
+     next(error)
+  }
+};

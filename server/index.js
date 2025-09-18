@@ -25,9 +25,10 @@ app.use(morgan("dev"));
 app.use("/patient", PublicRouter);
 app.use("/doctor", DoctorRouter);
 
-app.post("/doctor/register", (req, res) => {
-  res.json({ message: "Doctor registered successfully!" });
-});
+
+// app.post("/doctor/register", (req, res) => {
+//   res.json({ message: "Doctor registered successfully!" });
+// });
 
 app.get("/", (req, res) => {
     res.json({ message: "server connected" });

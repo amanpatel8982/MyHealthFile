@@ -1,5 +1,5 @@
 import express from "express";
-import { registerDoctor } from "../controllers/doctorController.js";
+import { registerDoctor,Login } from "../controllers/doctorController.js";
 
 import multer from "multer";
 
@@ -17,5 +17,6 @@ const cpUpload = upload.fields([
 ]);
 
 router.post("/register", cpUpload, registerDoctor);
+router.post("/login",Login);
 
 export default router;
