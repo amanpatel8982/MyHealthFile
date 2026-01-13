@@ -1,108 +1,155 @@
-import React from 'react'
+import React from "react";
 
-const Service = () => {
+const About = () => {
   return (
     <>
-    <div>
- <section class="bg-white py-20 px-4 md:px-20 text-gray-800">
-  <div class="max-w-7xl mx-auto">
+      {/* ABOUT HERO */}
+      <section className="bg-white py-16 sm:py-20 px-6 md:px-24 text-gray-800">
+        <div className="max-w-7xl mx-auto space-y-16">
 
-    <div class="text-center mb-16">
-     
-      <div className=" text-5xl font-extrabold text-blue-700 items-center justify-between font-serif mb-14 animate-bounce">
-               {"Explore Our Services".split("").map((char, i) => (
-                 <span key={i} className="letter" style={{ animationDelay: `${(i + 10) * 0.05}s` }}>
-                   {char === " " ? "\u00A0" : char}
-                 </span>
-                ))}
-             </div>
-      <p class="text-lg text-gray-600">
-        Whether you're a doctor or a patient, MyHealthFile brings everything you need into one secure, smart platform.
-      </p>
-    </div>
+          {/* HEADING */}
+          <div className="text-center">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold font-serif text-blue-700 mb-8">
+              {"About Us".split("").map((char, i) => (
+                <span
+                  key={i}
+                  className="letter"
+                  style={{ animationDelay: `${i * 0.05}s` }}
+                >
+                  {char === " " ? "\u00A0" : char}
+                </span>
+              ))}
+            </h1>
 
-    <h3 class="text-2xl font-bold text-blue-700 mb-6">🩺 For Doctors</h3>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
+            <p className="text-base sm:text-lg max-w-3xl mx-auto text-gray-800 font-serif">
+              MyHealthFile is a modern, secure platform designed to make managing
+              your medical records simple, fast, and accessible. We bring the
+              future of healthcare to your fingertips.
+            </p>
+          </div>
 
-      <div class="bg-blue-50 p-6 rounded-2xl shadow hover:shadow-lg transition">
-        <h4 class="text-xl font-semibold text-blue-800 mb-2">Patient Record Access</h4>
-        <p>Doctors can view complete health profiles, reports, and medical history of assigned patients.</p>
-      </div>
+          {/* MISSION & VISION */}
+          <div className="grid gap-12 md:grid-cols-2">
+            <div>
+              <h3 className="text-2xl sm:text-3xl font-bold font-serif text-blue-600 mb-4">
+                Our Mission
+              </h3>
+              <p className="text-sm sm:text-base text-gray-800 font-serif leading-relaxed">
+                Our mission is to remove the barriers in accessing medical data.
+                We believe that every individual should have full control over
+                their health records — anytime, anywhere. Whether you are at
+                home, traveling, or visiting a doctor, your entire health
+                history should follow you — digitally, securely, and instantly.
+              </p>
+            </div>
 
-      <div class="bg-blue-50 p-6 rounded-2xl shadow hover:shadow-lg transition">
-        <h4 class="text-xl font-semibold text-blue-800 mb-2">Digital Prescription</h4>
-        <p>Create and send signed prescriptions directly to patients — safely and instantly.</p>
-      </div>
+            <div>
+              <h3 className="text-2xl sm:text-3xl font-bold font-serif text-blue-600 mb-4">
+                Our Vision
+              </h3>
+              <p className="text-sm sm:text-base text-gray-800 font-serif leading-relaxed">
+                We envision a world where hospitals, doctors, and patients are
+                connected through a seamless digital ecosystem. MyHealthFile
+                aims to eliminate paperwork and delays while building a new
+                standard of trust and technology.
+              </p>
+            </div>
+          </div>
 
-      <div class="bg-blue-50 p-6 rounded-2xl shadow hover:shadow-lg transition">
-        <h4 class="text-xl font-semibold text-blue-800 mb-2">Live Appointment Dashboard</h4>
-        <p>Manage appointments, view schedules, and track patient flow in real-time.</p>
-      </div>
+          {/* CORE VALUES */}
+          <div>
+            <h3 className="text-3xl sm:text-4xl font-bold font-serif text-center text-blue-700 mb-12">
+              Our Core Values
+            </h3>
 
-      <div class="bg-blue-50 p-6 rounded-2xl shadow hover:shadow-lg transition">
-        <h4 class="text-xl font-semibold text-blue-800 mb-2">Upload Test Reports</h4>
-        <p>Upload lab reports, X-rays, and medical files with secure assignment to patient profiles.</p>
-      </div>
+            <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+              {[
+                { icon: "💡", title: "Innovation in Healthcare", desc: "We use the latest technology to simplify and enhance medical experiences." },
+                { icon: "🤝", title: "Patient First", desc: "Everything we build focuses on your convenience, safety, and peace of mind." },
+                { icon: "🔐", title: "Data Security", desc: "Your medical records are encrypted and accessible only to you." },
+                { icon: "⚙️", title: "Simple & Powerful Tools", desc: "Upload, organize, and share records effortlessly." },
+                { icon: "🌐", title: "Global Accessibility", desc: "Access your health data anywhere, anytime, on any device." },
+                { icon: "💬", title: "Real Human Support", desc: "A real team that genuinely cares about your healthcare journey." },
+              ].map((item, i) => (
+                <div
+                  key={i}
+                  className="bg-white rounded-xl p-6 shadow-[0_10px_50px_rgba(84,_76,_255,_0.4)] hover:shadow-blue-300 transition"
+                >
+                  <div className="text-3xl mb-4">{item.icon}</div>
+                  <h4 className="text-lg font-semibold mb-2">{item.title}</h4>
+                  <p className="text-sm text-gray-600">{item.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
 
-      <div class="bg-blue-50 p-6 rounded-2xl shadow hover:shadow-lg transition">
-        <h4 class="text-xl font-semibold text-blue-800 mb-2">Doctor Profile Control</h4>
-        <p>Edit professional profile, availability hours, and manage your credentials online.</p>
-      </div>
+          {/* TRUST */}
+          <div className="bg-blue-100 rounded-xl p-8 sm:p-10 text-center">
+            <h4 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4">
+              Your Health, Our Responsibility
+            </h4>
+            <p className="text-sm sm:text-base text-gray-700 max-w-3xl mx-auto leading-relaxed">
+              At MyHealthFile, we don’t just store data — we protect your health
+              journey. Every record, prescription, and report is organized,
+              secure, and always within your reach.
+            </p>
+          </div>
 
-      <div class="bg-blue-50 p-6 rounded-2xl shadow hover:shadow-lg transition">
-        <h4 class="text-xl font-semibold text-blue-800 mb-2">Secure Doctor-Patient Chat</h4>
-        <p>Communicate with patients using encrypted messaging (optional feature).</p>
-      </div>
-    </div>
+        </div>
+      </section>
 
-    <h3 class="text-2xl font-bold text-blue-700 mb-6">👨‍👩‍👧 For Patients & Families</h3>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {/* SECOND SECTION */}
+      <section className="bg-gray-50 px-6 md:px-24 py-16 sm:py-20">
+        <div className="max-w-7xl mx-auto space-y-16">
 
-      <div class="bg-green-50 p-6 rounded-2xl shadow hover:shadow-lg transition">
-        <h4 class="text-xl font-semibold text-green-800 mb-2">Health Record Storage</h4>
-        <p>Save all your medical files securely with 24/7 access from anywhere.</p>
-      </div>
+          <div className="text-center">
+            <h3 className="text-3xl sm:text-4xl font-serif font-bold text-blue-600 mb-4">
+              Our Vision
+            </h3>
+            <p className="text-base sm:text-lg text-gray-900 max-w-3xl mx-auto">
+              We aim to bridge the gap between patients and healthcare providers
+              by creating a digital-first ecosystem that’s always with you —
+              wherever you go.
+            </p>
+          </div>
 
-      <div class="bg-green-50 p-6 rounded-2xl shadow hover:shadow-lg transition">
-        <h4 class="text-xl font-semibold text-green-800 mb-2">Consult Your Doctor</h4>
-        <p>Book appointments and share reports directly with your doctor anytime.</p>
-      </div>
+          <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-3">
+            {[
+              { title: "📁 Centralized Records", desc: "Store prescriptions, reports, and documents in one place." },
+              { title: "🔒 Top-Grade Security", desc: "End-to-end encryption ensures confidentiality." },
+              { title: "🕒 24x7 Access", desc: "Access your records anytime, anywhere." },
+            ].map((item, i) => (
+              <div
+                key={i}
+                className="bg-white p-6 rounded-lg shadow-[0_10px_50px_rgba(84,_76,_255,_0.4)] hover:shadow-blue-300 transition"
+              >
+                <h4 className="text-lg font-semibold text-blue-600 mb-2">
+                  {item.title}
+                </h4>
+                <p className="text-sm text-gray-700">{item.desc}</p>
+              </div>
+            ))}
+          </div>
 
-      <div class="bg-green-50 p-6 rounded-2xl shadow hover:shadow-lg transition">
-        <h4 class="text-xl font-semibold text-green-800 mb-2">Track Family Health</h4>
-        <p>Manage records of your children, parents, or spouse from one account.</p>
-      </div>
+          <div className="text-center pt-10">
+            <h4 className="text-2xl sm:text-3xl font-bold font-serif mb-4">
+              Join Thousands Who Trust MyHealthFile
+            </h4>
+            <p className="text-gray-700 mb-6">
+              Start managing your medical records the smart way.
+            </p>
+            <a
+              href="/register"
+              className="inline-block px-6 py-3 bg-blue-600 text-white rounded-full text-base sm:text-lg hover:bg-blue-700 transition"
+            >
+              Create Your Free Account
+            </a>
+          </div>
 
-      <div class="bg-green-50 p-6 rounded-2xl shadow hover:shadow-lg transition">
-        <h4 class="text-xl font-semibold text-green-800 mb-2">Emergency Info Access</h4>
-        <p>Grant access to critical health data during emergencies.</p>
-      </div>
-
-      <div class="bg-green-50 p-6 rounded-2xl shadow hover:shadow-lg transition">
-        <h4 class="text-xl font-semibold text-green-800 mb-2">Appointment Notifications</h4>
-        <p>Get reminders for visits, prescriptions, and test follow-ups.</p>
-      </div>
-
-      <div class="bg-green-50 p-6 rounded-2xl shadow hover:shadow-lg transition">
-        <h4 class="text-xl font-semibold text-green-800 mb-2">Health Insights</h4>
-        <p>Generate simple charts and reports to track your overall health trends.</p>
-      </div>
-    </div>
-
-    
-    <div class="mt-20 text-center bg-blue-100 py-10 px-8 rounded-xl">
-      <h3 class="text-2xl font-bold text-blue-800 mb-3">Your Smart Health Companion Awaits</h3>
-      <p class="text-gray-700 mb-5">MyHealthFile is your all-in-one solution for modern digital healthcare. Create your account today.</p>
-      <a href="/signup" class="inline-block bg-blue-700 text-white py-3 px-6 rounded-full hover:bg-blue-800 transition">Create Free Account</a>
-    </div>
-  </div>
-</section>
-
-
-    </div>
-    
+        </div>
+      </section>
     </>
-  )
-}
+  );
+};
 
-export default Service
+export default About;
