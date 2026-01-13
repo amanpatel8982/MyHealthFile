@@ -1,64 +1,61 @@
-import React from 'react'
+import React from 'react';
 
 const Hero = () => {
   return (
-    <>
-      <div className=' h-160 w-351 m-6 ms-17 bg-indigo-800 '>
-       
-        <div className=" text-white px-20 py-40 flex flex-col md:flex-row items-center justify-between">
-          
-          <div className="md:w-1/2 w-full mb-10 md:mb-0">
+    <div className="bg-indigo-800 px-6 sm:px-12 md:px-24 py-16 sm:py-24 md:py-32 overflow-hidden">
+      <div className="flex flex-col md:flex-row items-center justify-between gap-10">
 
-            <div className="text-6xl relative font-sans bottom-25 font-bold text-white leading-snug">
-             <div className="flex flex-wrap ">
-               {"Your Health,".split("").map((char, i) => (
-                 <span key={i} className="letter" style={{ animationDelay: `${i * 0.05}s` }}>
-                   {char === " " ? "\u00A0" : char}
-                 </span>
-                ))}
-             </div>
-             <div className="flex flex-wrap">
-               {"Digitally Secured".split("").map((char, i) => (
-                 <span key={i} className="letter" style={{ animationDelay: `${(i + 15) * 0.05}s` }}>
-                   {char === " " ? "\u00A0" : char}
-                 </span>
-               ))}
-             </div>
-           </div>
-
-
-
-              <p className="text-lg relative bottom-12">
-                 Store, access and share your medical records securely with
-                  MyHealthFile.
-              </p>
-              <ul className=" space-y-2 text-lg relative bottom-7  list-disc list-inside">
-                  <li>Access your reports anytime, anywhere</li>
-                  <li>Share files securely with your doctor</li>
-                  <li>Track your health history in one place</li>
-                  <li>Download reports instantly in PDF format</li>
-               </ul>
-
-              <button className="bg-white  border-3 border-black-950  text-blue-800 mt-7 cursor-pointer px-9 py-3 rounded-full font-semibold hover:scale-110 transition duration-300 ease-in-out shadow-md hover:shadow-lg">
-                Get Started
-               </button>
+        {/* Left Text */}
+        <div className="md:w-1/2 w-full">
+          {/* Animated Heading */}
+          <div className="text-4xl sm:text-5xl md:text-6xl font-bold text-white leading-tight mb-6">
+            <div className="flex flex-wrap">
+              {"Your Health,".split("").map((char, i) => (
+                <span key={i} className="inline-block animate-fade-in" style={{ animationDelay: `${i * 0.05}s` }}>
+                  {char === " " ? "\u00A0" : char}
+                </span>
+              ))}
+            </div>
+            <div className="flex flex-wrap">
+              {"Digitally Secured".split("").map((char, i) => (
+                <span key={i} className="inline-block animate-fade-in" style={{ animationDelay: `${(i + 15) * 0.05}s` }}>
+                  {char === " " ? "\u00A0" : char}
+                </span>
+              ))}
+            </div>
           </div>
 
-          <div className='relative flex items-center justify-center md-justify-end md:items-end h-[319px] top-26'>
-            <img
-              src="doctor.png"
-              className=" w-full md-relative  rounded-lg  top-20"
-             />
-            </div>
+          {/* Description */}
+          <p className="text-base sm:text-lg md:text-xl mb-4">
+            Store, access and share your medical records securely with MyHealthFile.
+          </p>
 
+          {/* Features List */}
+          <ul className="list-disc list-inside space-y-2 text-base sm:text-lg mb-6">
+            <li>Access your reports anytime, anywhere</li>
+            <li>Share files securely with your doctor</li>
+            <li>Track your health history in one place</li>
+            <li>Download reports instantly in PDF format</li>
+          </ul>
+
+          {/* Button */}
+          <button className="bg-white text-indigo-800 border-2 border-black px-8 sm:px-10 py-3 sm:py-4 rounded-full font-semibold shadow-md hover:scale-110 hover:shadow-lg transition transform duration-300">
+            Get Started
+          </button>
         </div>
+
+        {/* Right Image */}
+        <div className="md:w-1/2 w-full flex justify-center md:justify-end">
+          <img
+            src="doctor.png"
+            alt="Doctor"
+            className="w-full max-w-xs sm:max-w-sm md:max-w-md rounded-lg shadow-lg"
+          />
+        </div>
+
       </div>
- 
+    </div>
+  );
+};
 
-
-
-    </>
-  )
-}
-
-export default Hero
+export default Hero;
