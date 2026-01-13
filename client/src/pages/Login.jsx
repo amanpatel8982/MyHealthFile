@@ -96,7 +96,6 @@ const Login = () => {
             <button
               type="submit"
               className="flex items-center justify-center w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition"
-              onClick={() => navigate('/doctorpanel')}
             >
               <HiOutlineMail className="mr-2" size={20} /> Log In
             </button> 
@@ -121,7 +120,7 @@ const Login = () => {
 
             <p className="text-center text-sm text-gray-600 mt-6">
               New to MyHealthFile?{" "}
-              <a href="#" className="text-blue-600 hover:underline"         onClick={() => navigate('/patientpanel')} >
+              <a href="#" className="text-blue-600 hover:underline">
                 Sign up here
               </a>
             </p>
