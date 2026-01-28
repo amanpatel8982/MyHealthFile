@@ -19,7 +19,7 @@ const Login = () => {
       setError("Please fill in all fields");
       return;
     }
-    // Handle login logic here (Firebase/Auth)
+    
     setError("");
     console.log("Logging in...", email, password);
     
