@@ -97,6 +97,7 @@ export default function PatientRegister() {
                   <option>Female</option>
                   <option>Other</option>
                 </select>
+                
                 <select
                   name="bloodGroup"
                   value={formData.bloodGroup}
