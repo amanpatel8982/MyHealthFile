@@ -261,7 +261,7 @@ export default function PatientRegister() {
                 type="submit"
                 className="px-6 py-2 bg-green-600 text-white rounded-lg font-semibold hover:bg-green-700"
               >
-                Submit Registration
+                Submit  Registration
               </button>
             )}
           </div>
