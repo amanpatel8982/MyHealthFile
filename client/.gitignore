@@ -25,7 +25,7 @@ out/
 .env.production.local
 
 # Runtime data
-pids
+
 *.pid
 *.seed
 *.pid.lock
@@ -37,8 +37,6 @@ coverage/
 # Cache
 .cache/
 .parcel-cache/
-.eslintcache
-.vite/
 
 # Local files
 *.local
@@ -51,8 +49,6 @@ coverage/
 Thumbs.db
 
 *.suo
-*.ntvs*
-*.njsproj
 *.sln
 *.sw?
 *.tmp
@@ -75,5 +71,5 @@ temp/
 data/
 
 # Misc
-.vercel/
+
 .netlify/
