@@ -68,8 +68,8 @@ import React from "react";
 
 const Hero = () => {
   return (
-    <section className="bg-indigo-800 w-full overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 lg:px-12 py-20">
+    <section className="bg-indigo-800 w-full overflow-hidden ">
+      <div className="max-w-7xl mx-auto px-6 lg:px-5 py-20">
         <div className="flex flex-col-reverse md:flex-row items-center justify-between gap-12">
 
           {/* LEFT CONTENT */}
@@ -122,7 +122,7 @@ const Hero = () => {
           </div>
 
           {/* RIGHT IMAGE */}
-          <div className="w-full md:w-1/2 flex justify-center md:justify-end">
+          <div className="w-full md:w-1/2 flex justify-center md:justify-end ">
             <img
               src="/doctor.png"
               alt="Doctor illustration"
