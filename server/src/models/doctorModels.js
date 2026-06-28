@@ -62,6 +62,7 @@ const doctorSchema = new mongoose.Schema(
     clinic: {
       type: String,
     },
+    
 
     // Address Details
     address: {

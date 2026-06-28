@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { motion } from "framer-motion";
+// import { motion } from "framer-motion";
 // Note: Make sure you have a working `api.js` file at this path
 import api from "../config/api"; 
 // Note: Make sure you have `react-icons` installed (`npm install react-icons`)
