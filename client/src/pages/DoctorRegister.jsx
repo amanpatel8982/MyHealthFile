@@ -30,6 +30,7 @@ export default function DoctorRegistration() {
     profilePic: null,
   });
 
+  
   const handleChange = (e) => {
     const { name, value, files } = e.target;
     if (files) {
