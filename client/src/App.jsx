@@ -18,9 +18,12 @@ const AppContent = () => {
   const location = useLocation();
 
   // jaha navbar hide karna hai un paths ki list
-  const hideNavbarPaths = ["/doctorpanel"];
+const hideNavbarPaths = [
+  "/doctorpanel",
+  "/patientpanel"
+];
 
-  const shouldHideNavbar = hideNavbarPaths.includes(location.pathname);
+const shouldHideNavbar = hideNavbarPaths.includes(location.pathname);
 
   return (
     <>

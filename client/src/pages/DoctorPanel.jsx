@@ -52,7 +52,7 @@ const DoctorPanel = () => {
         </div>
 
         {/* Content Area */}
-        <div className="p-6">
+        {/* <div className="p-6">
           {active === "chat" && <Chat />}
           {active === "dashboard" && <Dashboard />}
           {active === "notifications" && <Notifications />}
@@ -62,7 +62,7 @@ const DoctorPanel = () => {
           {active === "reports" && <Reports />}
           {active === "settings" && <Settings />}
           {active === "support" && <Support />}
-        </div>
+        </div> */}
       </div>
     </div>
   );
