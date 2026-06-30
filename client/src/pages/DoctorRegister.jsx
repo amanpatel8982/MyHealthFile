@@ -1,11 +1,12 @@
 import { useState } from "react";
-// import { motion } from "framer-motion";
-// Note: Make sure you have a working `api.js` file at this path
+import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 import api from "../config/api"; 
-// Note: Make sure you have `react-icons` installed (`npm install react-icons`)
 import { FaUserMd, FaFileUpload } from "react-icons/fa";
+import DoctorPanel from "./DoctorPanel";
 
 export default function DoctorRegistration() {
+    const navigate = useNavigate();
   const [step, setStep] = useState(1);
 
   // ✅ FIX 1: All string fields initialized to "" to prevent "uncontrolled" warning.
@@ -14,7 +15,7 @@ export default function DoctorRegistration() {
     dob: "",
     gender: "",
     aadharNumber: "",
-    password: "", // Added password to state
+    password: "", 
     specialization: "",
     experience: "",
     registrationNumber: "",
@@ -54,6 +55,7 @@ export default function DoctorRegistration() {
           alert("Please fill all Professional Details.");
           return false;
         }
+        
         return true;
       case 3:
         if (!formData.email || !formData.phone || !formData.password || !formData.address || !formData.city || !formData.pincode) {
@@ -188,7 +190,7 @@ export default function DoctorRegistration() {
 
           {step === 5 && (
             <motion.div>
-              <h2 className="text-xl font-semibold text-gray-700 mb-4">Review & Submit</h2>
+              <h2    className="text-xl font-semibold text-gray-700 mb-4">Review & Submit</h2>
               <p className="text-gray-600">Please review your information and click Submit to complete your registration.</p>
             </motion.div>
           )}
@@ -196,7 +198,7 @@ export default function DoctorRegistration() {
           <div className="flex justify-between mt-8">
             {step > 1 ? (<button type="button" onClick={prevStep} className="px-6 py-2 bg-gray-300 text-gray-800 rounded-lg font-semibold hover:bg-gray-400">← Previous</button>) : (<div></div>)}
             {step < 5 && (<button type="button" onClick={nextStep} className="px-6 py-2 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700">Next →</button>)}
-            {step === 5 && (<button type="submit" className="px-6 py-2 bg-green-600 text-white rounded-lg font-semibold hover:bg-green-700">Submit</button>)}
+            {step === 5 && (<button type="submit" className="px-6 py-2 bg-green-600 text-white rounded-lg font-semibold hover:bg-green-700"  onClick={() => navigate("/doctorpanel")} >Submit</button>)}
           </div>
         </form>
       </motion.div>

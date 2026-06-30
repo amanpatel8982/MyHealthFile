@@ -1,9 +1,12 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { FaUserPlus } from "react-icons/fa";
-import api from "../config/api"; // Make sure this path is correct
+import api from "../config/api"; 
+import { useNavigate } from "react-router-dom";
+import PatientPanel from "./PatientPanel";
 
 export default function PatientRegister() {
+  const navigate = useNavigate();
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState({
     fullName: "",
@@ -260,6 +263,7 @@ export default function PatientRegister() {
               <button
                 type="submit"
                 className="px-6 py-2 bg-green-600 text-white rounded-lg font-semibold hover:bg-green-700"
+                onClick={() => navigate("/patientpanel")}
               >
                 Submit  Registration
               </button>
