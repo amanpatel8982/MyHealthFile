@@ -72,13 +72,7 @@ export const Login = async (req, res, next) => {
 
     const user = await Patient.findOne({email});
 
-     let role = "PATIENT";
-
-    // Agar patient nahi mila to doctor me search karo
-    if (!user) {
-      user = await Doctor.findOne({ email });
-      role = "DOCTOR";
-    }
+    
 
     if(!user)
     {

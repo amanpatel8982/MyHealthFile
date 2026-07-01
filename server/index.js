@@ -8,6 +8,7 @@ import cookieParser from "cookie-parser";
 import cors from "cors";    
 import PublicRouter from "./src/routes/patientRouter.js";
 import DoctorRouter from "./src/routes/doctorRouter.js";
+import AuthRouter from "./src/routes/authRouter.js";
 
 
 
@@ -24,6 +25,9 @@ app.use(morgan("dev"));
 
 app.use("/patient", PublicRouter);
 app.use("/doctor", DoctorRouter);
+app.post("/patient/login", PublicRouter);   
+app.post("/doctor/login", DoctorRouter);   
+app.use("/", AuthRouter);
 
 
 // app.post("/doctor/register", (req, res) => {
