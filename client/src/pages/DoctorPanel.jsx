@@ -19,7 +19,7 @@ const DoctorPanel = () => {
   return (
     <div className="flex min-h-screen bg-[#F8FAFF]">
       {/* Sidebar */}
-      <Sidebar setActive={setActive} active={active} className="h-screen w-[18vw] bg-gradient-to-b from-blue-600 to-blue-800 text-white shadow-lg" />
+   c   <Sidebar setActive={setActive} active={active} className="h-screen w-[18vw] bg-linear-to-b from-blue-600 to-blue-800 text-white shadow-lg" />
 
       {/* Main Content */}
       <div className="flex-1 flex flex-col">
@@ -52,7 +52,7 @@ const DoctorPanel = () => {
         </div>
 
         {/* Content Area */}
-        {/* <div className="p-6">
+        <div className="p-6">
           {active === "chat" && <Chat />}
           {active === "dashboard" && <Dashboard />}
           {active === "notifications" && <Notifications />}
@@ -62,7 +62,7 @@ const DoctorPanel = () => {
           {active === "reports" && <Reports />}
           {active === "settings" && <Settings />}
           {active === "support" && <Support />}
-        </div> */}
+        </div>
       </div>
     </div>
   );
