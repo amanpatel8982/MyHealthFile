@@ -4,6 +4,7 @@ import { FcGoogle } from "react-icons/fc";
 import { HiOutlineMail } from "react-icons/hi";
 import { IoEye, IoEyeOff } from "react-icons/io5";
 import DoctorPanel from "./DoctorPanel";
+import api from "../config/api";
 
 
 const Login = () => {
@@ -13,16 +14,27 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
-  const handleLogin = (e) => {
+  const handleLogin = async(e) => {
     e.preventDefault();
+
     if (!email || !password) {
       setError("Please fill in all fields");
       return;
     }
-    
-    setError("");
-    console.log("Logging in...", email, password);
-    
+
+    try {
+      const res = await api.post("/patient/login",
+      { email, password });
+
+      localStorage.setItem("token", res.data.token);
+
+      localStorage.setItem("user", JSON.stringify(res.data.user));
+      navigate("/patientpanel");
+    } catch (err) {
+      setError(
+        err.response?.data?.message || "Login failed. Please try again."
+      );
+    }
   };
 
   return (

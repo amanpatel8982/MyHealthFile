@@ -10,8 +10,10 @@ import {
   FiSettings,
   FiLogOut,
 } from "react-icons/fi";
+import { useNavigate } from "react-router-dom";
 
 const Sidebar = ({ setActive, active }) => {
+  const navigate = useNavigate();
   const menu = [
     { key: "dashboard", label: "Dashboard", icon: <FiHome /> },
     { key: "appointments", label: "Appointments", icon: <FiCalendar /> },
@@ -23,8 +25,16 @@ const Sidebar = ({ setActive, active }) => {
     { key: "settings", label: "Settings", icon: <FiSettings /> },
   ];
 
+  const handleLogout = () => {
+    // Clear user data from localStorage
+    localStorage.removeItem("token");
+    localStorage.removeItem("patient");
+    // Redirect to login page
+    navigate("/login");
+  };
+
   return (
-    <div className="bg-green-900 text-white h-screen w-64 flex flex-col shadow-lg">
+    <div className="bg-green-900 text-white h-screen w-64 flex flex-col sticky top-0 shadow-lg">
       {/* Logo */}
       <div className="p-6 text-2xl font-bold text-center border-b border-green-800">
         Patient<span className="text-green-400">Panel</span>
@@ -53,7 +63,7 @@ const Sidebar = ({ setActive, active }) => {
       {/* Footer with Logout */}
       <div className="p-4 border-t border-green-800 text-center text-sm text-gray-300 flex flex-col gap-2">
         <button
-          onClick={() => setActive("logout")}
+          onClick={handleLogout}
           className="flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-red-600 hover:bg-red-700 text-white transition"
         >
           <FiLogOut /> Logout
@@ -63,5 +73,5 @@ const Sidebar = ({ setActive, active }) => {
     </div>
   );
 };
-
+        
 export default Sidebar;
