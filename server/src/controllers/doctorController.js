@@ -35,6 +35,9 @@ export const registerDoctor = async (req, res) => {
 
  
     const existingDoctor = await Doctor.findOne({ email });
+
+    
+
     if (existingDoctor) {
       return res.status(400).json({ message: "Doctor with this email already exists." });
     }

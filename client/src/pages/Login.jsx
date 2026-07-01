@@ -5,7 +5,7 @@ import { HiOutlineMail } from "react-icons/hi";
 import { IoEye, IoEyeOff } from "react-icons/io5";
 import DoctorPanel from "./DoctorPanel";
 import api from "../config/api";
-
+import PatientPanel from "./PatientPanel";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -14,7 +14,7 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
-  const handleLogin = async(e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
 
     if (!email || !password) {
@@ -23,22 +23,31 @@ const Login = () => {
     }
 
     try {
-      const res = await api.post("/patient/login",
-      { email, password });
+      const res = await api.post("/login", {
+        email,
+        password,
+      });
 
       localStorage.setItem("token", res.data.token);
 
       localStorage.setItem("user", JSON.stringify(res.data.user));
-      navigate("/patientpanel");
+
+      const role = res.data.user.role;
+
+      if (role === "PATIENT") {
+        navigate("/patientpanel");
+      } else if (role === "DOCTOR") {
+        navigate("/doctorpanel");
+      }
     } catch (err) {
       setError(
-        err.response?.data?.message || "Login failed. Please try again."
+        err.response?.data?.message || "Login failed. Please try again.",
       );
     }
   };
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-gradient-to-br from-blue-100 to-white">
+    <div className="flex min-h-screen items-center justify-center bg-linear-to-br from-blue-100 to-white">
       <div className="grid grid-cols-1 relative bottom-8 md:grid-cols-2 shadow-2xl rounded-2xl bg-white w-full max-w-5xl overflow-hidden">
         {/* Left Section */}
         <div className="bg-blue-50 p-10 hidden md:flex flex-col justify-center items-center text-center">
@@ -110,7 +119,7 @@ const Login = () => {
               className="flex items-center justify-center w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition"
             >
               <HiOutlineMail className="mr-2" size={20} /> Log In
-            </button> 
+            </button>
 
             <div className="flex items-center gap-2 my-4">
               <div className="flex-grow h-px bg-gray-300" />
@@ -122,11 +131,12 @@ const Login = () => {
               type="button"
               className="flex items-center justify-center w-full border border-gray-300 py-2 rounded-md hover:shadow-md transition"
             >
-              <a target="blank" href="https://accounts.google.com/v3/signin/identifier?ifkv=AdBytiNFk4jSEX2ee4ApwfKSL7l2V1c-XQidwW8apIG3SDgAG8uazfBPdgWmQSAe8DrDH6qYzo6m0g&service=mail&flowName=GlifWebSignIn&flowEntry=ServiceLogin&dsh=S386133557%3A1754313022764654">
+              <a
+                target="blank"
+                href="https://accounts.google.com/v3/signin/identifier?ifkv=AdBytiNFk4jSEX2ee4ApwfKSL7l2V1c-XQidwW8apIG3SDgAG8uazfBPdgWmQSAe8DrDH6qYzo6m0g&service=mail&flowName=GlifWebSignIn&flowEntry=ServiceLogin&dsh=S386133557%3A1754313022764654"
+              >
                 {" "}
-                <FcGoogle className="mr-2" size={20} 
-           
-                /> Sign In with Google
+                <FcGoogle className="mr-2" size={20} /> Sign In with Google
               </a>
             </button>
 

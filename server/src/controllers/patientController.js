@@ -72,6 +72,14 @@ export const Login = async (req, res, next) => {
 
     const user = await Patient.findOne({email});
 
+     let role = "PATIENT";
+
+    // Agar patient nahi mila to doctor me search karo
+    if (!user) {
+      user = await Doctor.findOne({ email });
+      role = "DOCTOR";
+    }
+
     if(!user)
     {
       const error = new Error("User Not Registered");
@@ -90,7 +98,7 @@ export const Login = async (req, res, next) => {
 
     genToken(user._id, res);
 
-    res.status(200).json({message:`Welcome Back ${user.fullName}`, data: user});
+    res.status(200).json({message:`Welcome Back ${user.fullName}`, data: user, role: role});
 
   } catch (error)
   {

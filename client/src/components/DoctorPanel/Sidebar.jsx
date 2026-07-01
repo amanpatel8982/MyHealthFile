@@ -9,6 +9,7 @@ import {
   FiBarChart2,
   FiHelpCircle,
   FiSettings,
+   FiLogOut,
 } from "react-icons/fi";
 
 const Sidebar = ({ setActive, active }) => {
@@ -24,8 +25,16 @@ const Sidebar = ({ setActive, active }) => {
     { key: "settings", label: "Settings", icon: <FiSettings /> },
   ];
 
+  const handleLogout = () => {
+    // Clear user data from localStorage
+    localStorage.removeItem("token");
+    localStorage.removeItem("doctor");
+    // Redirect to login page
+    window.location.href = "/login";
+  };
+
   return (
-    <div className="bg-blue-950 text-white h-screen w-64 flex flex-col  shadow-lg">
+    <div className="bg-blue-950 text-white h-screen w-64 flex flex-col sticky top-0 shadow-lg">
       {/* Logo */}
       <div className="p-6 text-2xl font-bold text-center border-b border-blue-800">
         Doctor<span className="text-indigo-400">Panel</span>
@@ -50,11 +59,15 @@ const Sidebar = ({ setActive, active }) => {
           </li>
         ))}
       </ul>
-
-      {/* Footer */}
-      <div className="p-4 border-t border-blue-800 text-center text-sm text-gray-400">
-        © 2025 Doctorly
-      </div>
+      <div className="p-4 border-t border-green-800 text-center text-sm text-gray-300 flex flex-col gap-2">
+              <button
+                onClick={handleLogout}
+                className="flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-red-600 hover:bg-red-700 text-white transition"
+              >
+                <FiLogOut /> Logout
+              </button>
+              <span className="text-gray-400">© 2025 MyHealthFile</span>
+            </div>
     </div>
   );
 };
